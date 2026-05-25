@@ -62,6 +62,35 @@ then in Claude Code:
 > repo was created, with near-sequential account IDs. That's a bootstrap
 > injection pattern, not organic growth.
 
+### MCP server (Claude Desktop, Cursor, …) — optional
+
+An optional [MCP](https://modelcontextprotocol.io/) wrapper exposes the audit as
+the `audit_repo` tool. It runs over **stdio** — your MCP client launches it as a
+local subprocess; it opens no network server and reads no environment variables.
+
+Requires Python 3.10+ and the `mcp` package (the core `audit.py` itself needs
+neither):
+
+```bash
+pip install -r requirements.txt   # installs `mcp`
+```
+
+Then register it with your client, e.g. Claude Desktop's `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "fake-star-audit": {
+      "command": "python3",
+      "args": ["/absolute/path/to/fake-star-audit/mcp_server.py"]
+    }
+  }
+}
+```
+
+Now ask your assistant *"audit the stars on owner/repo"* and it will call the
+`audit_repo` tool.
+
 ## How it works
 
 The tool inspects **two windows** of stargazers, because injection shows up in

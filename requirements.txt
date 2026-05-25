@@ -1,0 +1,9 @@
+# fake-star-audit dependencies
+#
+# CORE (audit.py): NONE. Python 3.10+ standard library only.
+#   Run it with no install:  python3 audit.py --repo owner/name
+#
+# OPTIONAL (mcp_server.py): only if you want to expose the audit as an MCP tool
+# for Claude Desktop / Cursor / other MCP clients. Install with:
+#   pip install -r requirements.txt
+mcp>=1.0
