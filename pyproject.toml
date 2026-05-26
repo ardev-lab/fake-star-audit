@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fake-star-audit"
+version = "0.1.0"
+description = "Transparent, dependency-free GitHub fake-star detector — LOW/MEDIUM/HIGH with per-rule evidence."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Armada", email = "hello@armadalab.dev" }]
+keywords = ["github", "stars", "fake-stars", "security", "supply-chain", "audit", "mcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+# The PyPI distribution bundles the optional MCP server, so `uvx fake-star-audit`
+# launches the stdio MCP server out of the box. The pure-stdlib CLI (audit.py)
+# still has zero runtime dependencies when run as a single file.
+dependencies = ["mcp>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/Armada735/fake-star-audit"
+Repository = "https://github.com/Armada735/fake-star-audit"
+Issues = "https://github.com/Armada735/fake-star-audit/issues"
+
+[project.scripts]
+# Default console script = MCP server (stdio), so `uvx fake-star-audit` works for
+# MCP clients with no extra arguments. The CLI gets its own explicit name.
+fake-star-audit = "mcp_server:main"
+fake-star-audit-cli = "audit:main"
+
+[tool.setuptools]
+py-modules = ["audit", "mcp_server"]

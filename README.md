@@ -1,5 +1,7 @@
 # fake-star-audit
 
+<!-- mcp-name: io.github.Armada735/fake-star-audit -->
+
 A transparent, dependency-free GitHub fake-star checker. One Python file, no
 token, no install — point it at a repo and get a `LOW` / `MEDIUM` / `HIGH`
 risk verdict with **every rule explained**.
@@ -52,6 +54,10 @@ python3 audit.py --repo facebook/react
 python3 audit.py --repo facebook/react --json   # machine-readable
 ```
 
+Or install from PyPI (`pip install fake-star-audit`) and run the
+`fake-star-audit-cli` command. Note: the bare `fake-star-audit` command is the
+MCP server (see below), **not** the CLI.
+
 ### Claude Code skill
 
 Drop the `skill/` folder into `~/.claude/skills/` (see [skill/SKILL.md](skill/SKILL.md)),
@@ -68,14 +74,28 @@ An optional [MCP](https://modelcontextprotocol.io/) wrapper exposes the audit as
 the `audit_repo` tool. It runs over **stdio** — your MCP client launches it as a
 local subprocess; it opens no network server and reads no environment variables.
 
-Requires Python 3.10+ and the `mcp` package (the core `audit.py` itself needs
-neither):
+**Easiest — via the package (`uvx`).** Published on PyPI as `fake-star-audit`
+and in the [MCP Registry](https://registry.modelcontextprotocol.io/) as
+`io.github.Armada735/fake-star-audit`. Register it with your client, e.g. Claude
+Desktop's `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "fake-star-audit": {
+      "command": "uvx",
+      "args": ["fake-star-audit"]
+    }
+  }
+}
+```
+
+**From a local checkout.** Requires Python 3.10+ and the `mcp` package (the core
+`audit.py` itself needs neither):
 
 ```bash
 pip install -r requirements.txt   # installs `mcp`
 ```
-
-Then register it with your client, e.g. Claude Desktop's `claude_desktop_config.json`:
 
 ```json
 {
