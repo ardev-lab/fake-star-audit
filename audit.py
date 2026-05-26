@@ -35,8 +35,9 @@ from datetime import datetime, timezone
 from statistics import median, pstdev, mean
 
 TOOL_VERSION = "0.1.0"
+TOOL_URL = "https://github.com/Armada735/fake-star-audit"
 API = "https://api.github.com"
-UA = "fake-star-audit/%s (+https://github.com/)" % TOOL_VERSION
+UA = "fake-star-audit/%s (+%s)" % (TOOL_VERSION, TOOL_URL)
 
 # Suffix-farm vocabulary observed in production. New variants emerge ~1-3/month,
 # so we also do frequency-based trailing-token detection below.
@@ -443,6 +444,7 @@ def audit(repo_slug, timeout=10):
 
     return {
         "tool_version": TOOL_VERSION,
+        "tool_url": TOOL_URL,
         "repo": repo_slug,
         "fetch_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "repo_metadata": {
@@ -483,6 +485,7 @@ def human_report(r):
         out.append("    extended signals: " + ", ".join(ext_on))
     for w in r["warnings"]:
         out.append("    ! %s" % w)
+    out.append("    — audited by fake-star-audit · %s" % TOOL_URL)
     return "\n".join(out)
 
 
