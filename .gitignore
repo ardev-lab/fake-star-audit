@@ -21,3 +21,7 @@ env/
 outputs/
 *.log
 *.local
+
+# Vendored MCP registry CLI (downloaded per-machine, not source)
+mcp-publisher
+mcp-publisher_*.tar.gz
