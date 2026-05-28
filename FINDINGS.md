@@ -33,7 +33,7 @@ the point here is the method and the base rate, not an accusation.
 Zero install, zero dependencies — it's one file:
 
 ```sh
-curl -sO https://raw.githubusercontent.com/Armada735/fake-star-audit/main/audit.py
+curl -sO https://raw.githubusercontent.com/ardev-lab/fake-star-audit/main/audit.py
 python3 audit.py --repo owner/name
 ```
 
@@ -45,4 +45,4 @@ pipx run --spec fake-star-audit fake-star-audit-cli --repo owner/name
 
 Every report shows the evidence behind the verdict, so you can judge it — and disagree — for yourself.
 
-— produced with fake-star-audit · https://github.com/Armada735/fake-star-audit
+— produced with fake-star-audit · https://github.com/ardev-lab/fake-star-audit

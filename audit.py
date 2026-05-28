@@ -34,8 +34,8 @@ import urllib.error
 from datetime import datetime, timezone
 from statistics import median, pstdev, mean
 
-TOOL_VERSION = "0.1.1"
-TOOL_URL = "https://github.com/Armada735/fake-star-audit"
+TOOL_VERSION = "0.1.2"
+TOOL_URL = "https://github.com/ardev-lab/fake-star-audit"
 API = "https://api.github.com"
 UA = "fake-star-audit/%s (+%s)" % (TOOL_VERSION, TOOL_URL)
 

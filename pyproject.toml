@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fake-star-audit"
-version = "0.1.1"
+version = "0.1.2"
 description = "Transparent, dependency-free GitHub fake-star detector — LOW/MEDIUM/HIGH with per-rule evidence."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Armada", email = "hello@armadalab.dev" }]
+authors = [{ name = "ardev", email = "hello@armadalab.dev" }]
 keywords = ["github", "stars", "fake-stars", "security", "supply-chain", "audit", "mcp"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -30,9 +30,9 @@ classifiers = [
 dependencies = ["mcp>=1.0"]
 
 [project.urls]
-Homepage = "https://github.com/Armada735/fake-star-audit"
-Repository = "https://github.com/Armada735/fake-star-audit"
-Issues = "https://github.com/Armada735/fake-star-audit/issues"
+Homepage = "https://github.com/ardev-lab/fake-star-audit"
+Repository = "https://github.com/ardev-lab/fake-star-audit"
+Issues = "https://github.com/ardev-lab/fake-star-audit/issues"
 
 [project.scripts]
 # Default console script = MCP server (stdio), so `uvx fake-star-audit` works for

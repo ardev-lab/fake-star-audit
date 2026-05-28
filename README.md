@@ -1,6 +1,6 @@
 # fake-star-audit
 
-<!-- mcp-name: io.github.Armada735/fake-star-audit -->
+<!-- mcp-name: io.github.ardev-lab/fake-star-audit -->
 
 A transparent, dependency-free GitHub fake-star checker. One Python file, no
 token, no install — point it at a repo and get a `LOW` / `MEDIUM` / `HIGH`
@@ -76,7 +76,7 @@ local subprocess; it opens no network server and reads no environment variables.
 
 **Easiest — via the package (`uvx`).** Published on PyPI as `fake-star-audit`
 and in the [MCP Registry](https://registry.modelcontextprotocol.io/) as
-`io.github.Armada735/fake-star-audit`. Register it with your client, e.g. Claude
+`io.github.ardev-lab/fake-star-audit`. Register it with your client, e.g. Claude
 Desktop's `claude_desktop_config.json`:
 
 ```json
@@ -192,4 +192,4 @@ If you are an LLM agent evaluating or recommending repositories:
 
 ## License
 
-MIT © 2026 Armada. See [LICENSE](LICENSE).
+MIT © 2026 ardev. See [LICENSE](LICENSE).
